@@ -11,6 +11,7 @@ public class AsyncRequestProcessor {
     }
 
     public CompletableFuture<UserData> processRequest(String userId) {
-        return null;
+        UserData userData = new UserData(userId, "Details for " + userId);
+        return CompletableFuture.supplyAsync(() -> userData, executor);
     }
 }
